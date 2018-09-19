@@ -1,5 +1,7 @@
 import pandas as pd
 import os
+import datetime
+from dateutil.parser import parse
 
 FALLDatei = "FALL.csv"
 ENTGELTEDatei = "ENTGELTE.csv"
@@ -26,6 +28,12 @@ print("Nur Fälle mit Aufnahmedatum 2017: ",len(FALL),"(-{} Fälle)".format(orig
 orig_fälle = len(FALL)
 FALL = FALL[FALL["Entgeltbereich"] == "DRG"]
 print("Nur Fälle mit DRG-Entgeltbereich: ",len(FALL),"(-{} Fälle)".format(orig_fälle-len(FALL)))
+#orig_fälle = len(FALL)
+#FALL["Aufnahmedatum"].apply(lambda x: datetime.datetime.strptime(x,"%Y%m%d%H%M"))
+#FALL["Entlassungsdatum"].apply(lambda x: datetime.datetime.strptime(x,"%Y%m%d%H%M"))
+#FALL["Aufenthaltszeit in Stunden"] = (((FALL["Aufnahmedatum"] - FALL["Entlassungsdatum"]).apply(lambda x: x.total_seconds()/60)/60)
+#print(FALL["Aufenthaltszeit in Stunden"] )
+#FALL = FALL[FALL["Aufenthaltszeit in Stunden"] > 24]
 
 fallnummern = FALL["KH-internes-Kennzeichen"].values
 newpath = r'./P21_fuer_grouper/' 
