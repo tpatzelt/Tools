@@ -1,0 +1,2 @@
+python p21_fuer_grouper_bereinigen.py 
+PAUSE
