@@ -37,9 +37,9 @@ except ValueError:
     sys.exit(1)
 
 if mode == "absolut":
-    fall["Beatmungsstunden"] = fall["Beatmungsstunden"].apply(lambda x: str(x + change).zfill(4))
+    fall["Beatmungsstunden"] = fall["Beatmungsstunden"].apply(lambda x: str(int(x + change)).zfill(4))
 if mode == "percent":
-    fall["Beatmungsstunden"] = fall["Beatmungsstunden"].apply(lambda x: str(x * (1 + change / 100).zfill(4)))
+    fall["Beatmungsstunden"] = fall["Beatmungsstunden"].apply(lambda x: str(int(x * (1 + change / 100))).zfill(4))
 
 fall.to_csv("Fall_{}.csv".format(sys.argv[-1]), encoding=enco["encoding"], sep=";", index=False)
 now = int(time.time() - start)
