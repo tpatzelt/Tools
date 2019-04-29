@@ -11,7 +11,7 @@ if "%" in change:
     try:
         change = int(change.replace("%", "").strip())
         mode = "percent"
-        print("Die Beatmungsstunden werden um {} erhöht".format(change))
+        print("Die Beatmungsstunden werden um {} Prozent erhöht".format(change))
     except ValueError:
         print("{} ist keine gültige Zahl.".format(change))
 
